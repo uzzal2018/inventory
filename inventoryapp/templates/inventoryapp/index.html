@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  </head>
+  <body>
+
+<!-- Navbar Start from here-->
+
+
+
+<!-- Navbar End-->
+    <h1>Officers Profile</h1>
+
+<!-- officer information Inpur form start-->
+
+<form>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <form action="{% url 'saveinventory' %}" method="POST">
+            {% csrf_token %}
+        <label for="validationDefault01">Name</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" required>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault02">Designation</label>
+        <input type="text" class="form-control" id="designation" name="designation" placeholder="Enter   Designation" required>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault02">Grade</label>
+        <input type="text" class="form-control" id="grade" name="grade" placeholder="grade" required>
+      </div>
+       
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault02">Phone Number</label>
+        <input type="text" class="form-control" id="phone" name="phone" placeholder="phone number" required>
+      </div>
+     
+    <button class="btn btn-primary" type="submit">Submit form</button>
+  </form>
+
+<!-- Officer information input form End-->
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  </body>
+</html>
