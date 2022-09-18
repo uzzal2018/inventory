@@ -7,6 +7,7 @@ class Inventoryoff(models.Model):
     designation=models.CharField(max_length=50)
     grade=models.CharField(max_length=5)
     mobile= models.CharField(max_length=15)
+    # this is a new field
     
  
         
