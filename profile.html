@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Freelancer - Start Bootstrap Theme</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href='{% static "assets/favicon.ico" %}' />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href='{% static "css/styles.css" %}' rel="stylesheet" />
+
+    </head>
+
+
+<body>
+
+ 
+
+
+
+   <body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#page-top">CPTU, IMED</a>
+           
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'index' %}">Home</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'product' %}">Product Stock</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'profile' %}">Employee Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead bg-primary text-white text-center">
+        <div class="container d-flex align-items-center flex-column">
+            <!-- Masthead Avatar Image-->
+          
+            <!-- Masthead Heading-->
+
+<form action="{% url 'profile' %}" method="post">
+              {% csrf_token %}
+<table class= "table" align= "center"> 
+
+   
+  <!-- 
+  <div class="mb-3">
+   <label for="exampleFormControlInput1" class="form-label">Catogory</label>
+    <input type="text" class="form-control" id="cat" name="cat" placeholder="category">-->
+<tr>
+<th> <label for="exampleFormControlInput1" class="form-label">Name</label></th>
+<th><input type="text" class="form-control" id="offName" name="offName" placeholder="Name"></th>
+ <th> <label for="exampleFormControlInput1" class="form-label">Designation</label></th>
+  <th><input type="text" class="form-control" id="designation" name="designation" placeholder="Designation"></th>
+</tr> 
+
+<tr>
+  <th><label for="offcategory">Employe Category</label>
+    <td><select name="offcategory" id="offcategory" class="form-control">
+        <option value="Cadre">Cadre</option>
+        <option value="Non-Cadre">Non-Cadre</option>
+        <option value="Consultant">Consultant</option>
+        <option value="Staff">Staff</option>
+        </select>
+
+  <th><label for="exampleFormControlInput1" class="form-label">Section</label></th>
+  <th><input type="text" class="form-control" id="section" name="section" placeholder="Section"></th>
+</tr> 
+
+<tr>
+  <th><label for="grade">Grade</label>
+    <td><select name="grade" id="grade" class="form-control">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="Staff">Staff</option>
+        <option value="Consultant">Consultant</option>
+        </select>
+
+  <th><label for="exampleFormControlInput1" class="form-label">Joining Date</label></th>
+  <th><input type="date" class="form-control" id="joiningDate" name="joiningDate" placeholder="joiningDate"></th>
+</tr>
+<tr>
+  <th><label for="exampleFormControlInput1" class="form-label">Release Date</label></th>
+  <th><input type="date" class="form-control" id="releaseDate" name="releaseDate" placeholder="releaseDate"></th>
+ 
+<th><label for="exampleFormControlInput1" class="form-label">Mobile Number</label></th>
+<th><input type="text" class="form-control" id="mobile_no" name="mobile_no" placeholder="Mobile No"></th>
+</tr>
+
+ <tr>
+<th><label for="exampleFormControlInput1" class="form-label">Address</label></th>
+<th><input type="text" class="form-control" id="qty" name="address" placeholder="Address"></th>
+<th> <button type="submit" class="ms-2 btn btn-success btn-sm">Submit</button></th>
+</tr>
+</table>
+
+
+<div class="card card-body">
+  <table class= "table">
+  <tr>
+    <th> ID</th>
+    <th>Employe Name</th>
+    <th> Designation</th>
+    <th>Officer Category</th>
+    <th> Section</th>
+    <th> Grade</th>
+    <th> Joining Date</th>
+    <th> Release Date</th>
+    <th> Mobile Number</th>
+    <th> Address</th>
+  </tr>
+
+ 
+
+{% for j in officers %}
+ 
+<tr>
+  <td>{{j.id}}
+  <td> {{j.offName}}</td>
+  <td> {{j.designation}}</td>
+  <td> {{j.offcategory}}</td>
+  <td>{{j.section}} </td>
+  <td> {{j.grade}}</td>
+  <td>{{j.joiningDate}}</td>
+  <td>{{j.releaseDate}}</td>
+  <td> {{j.mobile_no}}</td>
+  <td> {{j.address}}</td>&nbsp; &nbsp;<td> <a class="btn btn-danger btn-sm" href="{% url 'deleteProfile' j.id %}">X</a></td><td><a class="btn btn-danger btn-sm" href="{% url 'edit' j.id %}">edit</a></td>
+
+
+ </tr>
+      {% endfor %}
+</table>
+<!--ENd input box-->
+
+<!-- Portfolio Section-->
+
+
+    
+  </body>
+</html>

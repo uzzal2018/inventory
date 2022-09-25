@@ -1,0 +1,70 @@
+
+
+<h2 align= "center">Employee Edit</h2>
+
+<td> <form action="{% url 'profile' %}" method="post">>Edit</td> 
+<
+    {% csrf_token %}
+<table class= "table" align= "center"> 
+
+
+    {% for j in edit %}    
+<!-- 
+<div class="mb-3">
+<label for="exampleFormControlInput1" class="form-label">Catogory</label>
+<input type="text" class="form-control" id="cat" name="cat" placeholder="category">-->
+<tr>
+<th> <label for="exampleFormControlInput1" class="form-label">Name</label></th>
+<th><input type="text" class="form-control" id="offName" name="offName" value="{{j.offname}}" placeholder="Name"></th>
+<th> <label for="exampleFormControlInput1" class="form-label">Designation</label></th>
+<th><input type="text" class="form-control" id="designation" name="designation" placeholder="Designation"></th>
+</tr> 
+
+<tr>
+<th><label for="offcategory">Employe Category</label>
+<td><select name="offcategory" id="offcategory" class="form-control">
+<option value="Cadre">Cadre</option>
+<option value="Non-Cadre">Non-Cadre</option>
+<option value="Consultant">Consultant</option>
+<option value="Staff">Staff</option>
+</select>
+
+<th><label for="exampleFormControlInput1" class="form-label">Section</label></th>
+<th><input type="text" class="form-control" id="section" name="section" placeholder="Section"></th>
+</tr> 
+
+<tr>
+<th><label for="grade">Grade</label>
+<td><select name="grade" id="grade" class="form-control">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="Staff">Staff</option>
+<option value="Consultant">Consultant</option>
+</select>
+
+<th><label for="exampleFormControlInput1" class="form-label">Joining Date</label></th>
+<th><input type="date" class="form-control" id="joiningDate" name="joiningDate" placeholder="joiningDate"></th>
+</tr>
+<tr>
+<th><label for="exampleFormControlInput1" class="form-label">Release Date</label></th>
+<th><input type="date" class="form-control" id="releaseDate" name="releaseDate" placeholder="releaseDate"></th>
+
+<th><label for="exampleFormControlInput1" class="form-label">Mobile Number</label></th>
+<th><input type="text" class="form-control" id="mobile_no" name="mobile_no" placeholder="Mobile No"></th>
+</tr>
+
+<tr>
+<th><label for="exampleFormControlInput1" class="form-label">Address</label></th>
+<th><input type="text" class="form-control" id="qty" name="address" placeholder="Address"></th>
+<th> <button type="submit" class="ms-2 btn btn-success btn-sm">Submit</button></th>
+</tr>
+{% endfor %}
+</table>
+

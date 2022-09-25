@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        
+        
+        <title>Inventory Management System</title>
+        <!-- Favicon-->
+       
+        <!-- Font Awesome icons (free version)-->
+        
+        <!-- Google fonts-->
+      
+        
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href='{% static "css/styles.css" %}' rel="stylesheet" />
+
+    </head>
+
+
+ 
+    <body>
+
+   <body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#page-top">CPTU, IMED</a>
+           
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'index' %}">Home</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'product' %}">Product Stock</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url 'profile' %}">Employee Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <p style="text-align:center"> Equipment Stock </p>
+    
+    <!-- Masthead-->
+    <header class="masthead bg-primary text-white text-center">
+  
+            <!-- Masthead Avatar Image-->
+          
+            <!-- Masthead Heading-->
+
+ 
+           
+
+ 
+
+<form action="{% url 'product' %}" method="post">
+   {% csrf_token %}
+
+   
+
+  <table class= "table" style="text-align:center"> 
+    <!--Catogory and Item name-->
+  <tr>
+      <th><label for="exampleFormControlInput1" class="form-label">Category:</label>
+      <td><select name="cat" id="cat" class="form-control">
+      <option value="Others">Others</option>
+      <option value="IT">IT</option>
+      <option value="Communication">Communication</option>
+      <option value="Stationary">Stationary</option>
+      <option value="Furniture">Furniture</option>
+      </select>
+  
+    <th> <label for="exampleFormControlInput1" class="form-label">Item Name</label></th>
+    <th><input type="text" class="form-control" id="itemName" name="itemName" placeholder="Item Name"></th>
+  </tr> 
+<!--  Device Model and Description-->
+  <tr>
+     <th> <label for="exampleFormControlInput1" class="form-label">Device Model</label></th>
+     <th><input type="text" class="form-control" id="model_no" name="model_no" placeholder="Model No"></th>
+     <th><label for="exampleFormControlInput1" class="form-label">Description</label></th>
+     <th><input type="text" class="form-control" id="itemDesc" name="itemDesc" placeholder="Description"></th>
+</tr>
+
+<!-- Serial no and Condition-->
+<tr>
+   <th><label for="exampleFormControlInput1" class="form-label">Serial No</label></th>
+    <th><input type="text" class="form-control" id="itemSerial" name="itemSerial" placeholder="Serial "></th>
+
+     <th><label for="condition">Condition</label>
+    <td><select name="condition" id="condition" class="form-control">
+        <option value="New">New</option>
+        <option value="Old">Old</option>
+        <option value="Useless">Useless</option>
+        </select>
+<!-- Date of entry and Purches  source-->
+
+<tr>
+     <th><label for="exampleFormControlInput1" class="form-label">Date of Entry</label></th>
+     <th><input type="date" class="form-control" id="dateOfentry" name="dateOfentry" placeholder="Date"></th>
+
+    <th> <label for="exampleFormControlInput1" class="form-label">Purches Under</label></th>
+     <th><input type="text" class="form-control" id="purPerticular" name="purPerticular" placeholder="Purches Description"></th>
+    </tr>
+    <tr>
+     <th><label for="exampleFormControlInput1" class="form-label">Comments</label></th>
+     <th><input type="text" class="form-control" id="comments" name="comments" placeholder="Comments"></th>
+    <th><td><button type="submit" class="ms-2 btn btn-danger btn-sm">Submit</button></td></th>
+</tr>
+ 
+</table>
+<div class="card card-body">
+  <table class= "table" align= "center">
+    <th>id</th>
+    <th>Catogory</th>
+    <th> Item Name</th>
+    <th> Model</th>
+    <th> Description</th>
+    <th> Serial No</th>
+    <th> Condition</th>
+    <th> Entry Date</th>
+    <th> Source</th>
+    <th> Comments</th>
+
+
+{% for i in inventories %}
+ 
+<tr>
+    <td>{{i.id}}</td>
+    <td>{{i.cat}}</td>
+    <td>{{i.itemName}}</td>
+    <td>{{i.model_no}}</td>
+    <td>{{i.itemDesc}}</td>
+    <td>{{i.itemSerial}}</td>
+    <td>{{i.condition}}</td>
+    <td>{{i.dateOfentry}}</td>
+    <td>{{i.purPerticular}}</td>
+    <td>{{i.comments}}</td> &nbsp; &nbsp;<td> <a class="btn btn-danger btn-sm" href="{% url 'deleteTodo' i.id %}">X</a></td>
+</tr>
+   
+   
+      {% endfor %}
+</table>
+<!--ENd input box-->
+
+</div>
+ 
+ <!-- Footer-->
+ 
+    
+  </body>
+</html>
+
+
+
